@@ -26,11 +26,12 @@ public class Kaleidocycle {
 	int taille;
 	ArrayList<ArrayList<int[]>> composantes;
 	ArrayList<Integer> cycle;
+	int nb_notes;
 
-	public Kaleidocycle(Cycle c, Kaleidos k)
+	public Kaleidocycle(Cycle c, Kaleidos k, int nb_notes)
 	{
 		int i,j;
-		
+		this.nb_notes = nb_notes;
 		this.taille = c.metre*c.phases + 1; //! size of the cycle (unique ones before it starts being repeated again)
 		
 		this.cycle = new ArrayList<Integer>();

@@ -21,12 +21,15 @@
 
 import java.awt.Color;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public abstract class OngletGraph extends Onglet {
+public abstract class OngletGraph extends Onglet implements ActionListener{
 
 	JPanel[] couleurs;
 	JPanel haut;
@@ -69,7 +72,7 @@ public abstract class OngletGraph extends Onglet {
 
 	abstract void initZoneAff();
 	abstract void initHaut();
-	abstract void affComplet(Cycle c);
-	abstract void affPartiel(int[] tab, Cycle c);
+	abstract void affComplet();
+	abstract void affPartiel(int[] tab);
 
 }

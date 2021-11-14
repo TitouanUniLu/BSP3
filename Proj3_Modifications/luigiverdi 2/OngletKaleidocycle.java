@@ -33,14 +33,15 @@ import javax.swing.JFormattedTextField;
 public class OngletKaleidocycle extends OngletGraph implements ActionListener{
 
 	Kaleidocycle kc;
-	
+	int nb_notes;
+
 	private static final long serialVersionUID = 1L;
 	
-	public OngletKaleidocycle(Cycle c, Kaleidocycle kc)
+	public OngletKaleidocycle(Cycle c, Kaleidocycle kc, int nb_notes)
 	{
 
 		this.setLayout(new BorderLayout());
-		
+		this.nb_notes = nb_notes;
 		this.kc = kc;
 		
 		this.initHaut();
@@ -51,6 +52,7 @@ public class OngletKaleidocycle extends OngletGraph implements ActionListener{
 		this.add(this.haut, BorderLayout.NORTH);
 		this.add(this.zoneAffichage, BorderLayout.CENTER);
 		this.add(this.bas, BorderLayout.SOUTH);
+
 	}
 
 	void initHaut()
@@ -85,13 +87,13 @@ public class OngletKaleidocycle extends OngletGraph implements ActionListener{
 		this.zoneAffichage.setLayout(new GridLayout(13,this.kc.taille+1));
 	}
 
-	void affComplet(Cycle c)
+	void affComplet()
 	{
 		int i,j,t;
 		boolean rempli;
 		JPanel casePleine;
 		
-		for (i=(c.getBase()-1);i>=-1;i--)
+		for (i=nb_notes-1;i>=-1;i--)
 		{// lignes
 			for (j=-1;j<=this.kc.taille-1;j++)
 			{// colonnes
@@ -126,13 +128,13 @@ public class OngletKaleidocycle extends OngletGraph implements ActionListener{
 
 	}
 
-	void affPartiel(int[] tab, Cycle c)
+	void affPartiel(int[] tab)
 	{
 		int i,j,t;
 		boolean rempli;
 		JPanel casePleine;
 		
-		for (i=(c.getBase()-1);i>=-1;i--)
+		for (i=nb_notes-1;i>=-1;i--)
 		{// lignes
 			for (j=-1;j<=tab.length-1;j++)
 			{// colonnes
@@ -166,14 +168,14 @@ public class OngletKaleidocycle extends OngletGraph implements ActionListener{
 		}
 	}
 
-	public void actionPerformed(ActionEvent e, Cycle c)
+	public void actionPerformed(ActionEvent e)
 	{
 		Object src = e.getSource();
 		if (src == this.boutonComplet)
 		{
 			this.textHaut.setText("Affichage du kaleidocycle");
 			this.zoneAffichage.removeAll();
-			this.affComplet(Cycle c);
+			this.affComplet();
 			this.zoneAffichage.repaint();
 			this.zoneAffichage.repaint();
 			this.jtfPartiel.setText("<composantes a afficher, separees par un espace>");

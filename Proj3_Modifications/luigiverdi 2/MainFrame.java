@@ -33,7 +33,7 @@ public class MainFrame extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public MainFrame(Cycle c, Kaleidocycle kc)
+	public MainFrame(Cycle c, Kaleidocycle kc, int nb_notes)
 	{	//! parametres generaux
 		super("Projet de java - L2 MPCIE");
 		this.setResizable(false);
@@ -46,14 +46,14 @@ public class MainFrame extends JFrame {
 		this.onglets = new JTabbedPane();
 		
 		this.ongletInfos = new OngletInfos();
-		this.ongletKaleidos = new OngletKaleidos(c);
-		this.ongletKaleidocycle = new OngletKaleidocycle(c,kc);
-		this.ongletKaleidosT = new OngletKaleidosT(c);
-		this.ongletKaleidocycleT = new OngletKaleidocycleT(c,kc);
+		this.ongletKaleidos = new OngletKaleidos(c, nb_notes);
+		this.ongletKaleidocycle = new OngletKaleidocycle(c,kc,nb_notes);
+		this.ongletKaleidosT = new OngletKaleidosT(c, nb_notes);
+		this.ongletKaleidocycleT = new OngletKaleidocycleT(c,kc,nb_notes);
 		
 		this.ongletInfos.rempliZoneAff(c);		
 		this.ongletKaleidos.affComplet();		
-		this.ongletKaleidocycle.affComplet(c.getBase());
+		this.ongletKaleidocycle.affComplet();
 		this.ongletKaleidosT.affComplet();	
 		this.ongletKaleidocycleT.affComplet();
 		

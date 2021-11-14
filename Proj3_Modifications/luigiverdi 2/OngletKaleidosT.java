@@ -36,12 +36,14 @@ public class OngletKaleidosT extends OngletKaleidos{
 	JFormattedTextField jtfTrans;
 	ArrayList<ArrayList<int[]>> composantesT;
 	int transposition;
+	int nb_notes;
 	
 	private static final long serialVersionUID = 1L;
 	
-	public OngletKaleidosT(Cycle c)
+	public OngletKaleidosT(Cycle c, int nb_notes)
 	{
-		super(c);
+		super(c, nb_notes);
+		this.nb_notes = nb_notes;
 		this.composantesT = new ArrayList<ArrayList<int[]>>();
 		this.transposition = 0;
 		this.calculeComposantesT();

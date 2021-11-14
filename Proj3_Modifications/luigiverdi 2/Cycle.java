@@ -29,11 +29,13 @@ public class Cycle {
 	ArrayList<int[]> cycle; //! liste des composantes[col][lignes] obtenues, formant le cycle
 	int phases; //! nbr de composantes pour avoir un cycle
 	int base; //! le %12 de la somme des elements du module
+	int nb_notes;
 
-	public Cycle(String[] entiers)
+	public Cycle(String[] entiers, int nb_notes)
 	{
 		int i;
 		this.metre = entiers.length;
+		this.nb_notes = nb_notes;
 		
 		this.module = new ArrayList<Integer>();
 		this.base = 0;
@@ -42,13 +44,12 @@ public class Cycle {
 			this.module.add(Integer.parseInt(entiers[i])); //! enregistrement du module
 			this.base += Integer.parseInt(entiers[i]); //! calcul de la somme des elements du module
 		}
-		this.base = this.base%12; //! mise au %12 pour obtenir la base
+		this.base = this.base%nb_notes; //! mise au %12 pour obtenir la base
 
 		this.calculCycle();
 
 		this.calculPhases();
 	}
-	int tempBase = getBase();
 
 	public void calculComposante(int x)
 	{
@@ -64,7 +65,7 @@ public class Cycle {
 				this.cycle.get(x)[i] = this.module.get(0);
 				for (j=1; j<=i; j++)
 					this.cycle.get(x)[i] += this.module.get(j); //! calcul de la somme cumulative
-				this.cycle.get(x)[i] = this.cycle.get(x)[i]%tempBase; //! calcul du %12 de la somme
+				this.cycle.get(x)[i] = this.cycle.get(x)[i]%nb_notes; //! calcul du %12 de la somme
 			}
 		}
 		else //! si on a affaire a composante_x , x>=1
@@ -74,7 +75,7 @@ public class Cycle {
 				this.cycle.get(x)[i] = this.module.get(0) + this.cycle.get(x-1)[this.metre-1]; //! ajout de la nouvelle base
 				for (j=1; j<=i; j++)
 					this.cycle.get(x)[i] += this.module.get(j); //! calcul de la somme cumulative
-				this.cycle.get(x)[i] = this.cycle.get(x)[i]%tempBase; //! calcul du %12 de la somme
+				this.cycle.get(x)[i] = this.cycle.get(x)[i]%nb_notes; //! calcul du %12 de la somme
 			}
 		}
 	}
@@ -98,5 +99,8 @@ public class Cycle {
 	}
 	public int getBase() {
 		return this.base;
+	}
+	public int getNotes() {
+		return this.nb_notes;
 	}
 }

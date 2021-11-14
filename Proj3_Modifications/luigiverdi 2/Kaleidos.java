@@ -26,10 +26,12 @@ public class Kaleidos {
 	ArrayList<Integer> accessoires;
 	ArrayList<Integer> structVerticale;
 	ArrayList<ArrayList<int[]>> composantes;
+	int nb_notes;
 	
-	public Kaleidos(Cycle c)
+	public Kaleidos(Cycle c, int nb_notes)
 	{
 		int i;
+		this.nb_notes = nb_notes;
 		
 		this.accessoires = new ArrayList<Integer>(); 
 		this.structVerticale = new ArrayList<Integer>();
@@ -48,16 +50,15 @@ public class Kaleidos {
 	public void calculeComposantes(Cycle c)
 	{
 		int i,j;
-		int tempBase = c.getBase();
 		this.composantes = new ArrayList<ArrayList<int[]>>();
 		
-		for (i=0;i<c.getBase();i++)
+		for (i=0;i<nb_notes;i++)
 		{
 			this.composantes.add(new ArrayList<int[]>());
 			for (j=0;j<this.structVerticale.size();j++)  //loop increments each value of the module by 1 and always modulo 12
 			{
 				this.composantes.get(i).add(new int[2]);
-				this.composantes.get(i).get(j)[0] = (this.structVerticale.get(j)+i)%tempBase;
+				this.composantes.get(i).get(j)[0] = (this.structVerticale.get(j)+i)%nb_notes;
 				this.composantes.get(i).get(j)[1] = j;
 			}
 		}

@@ -35,13 +35,14 @@ public class OngletKaleidocycleT extends OngletKaleidocycle {
 	JFormattedTextField jtfTrans;
 	ArrayList<ArrayList<int[]>> composantesT;
 	int transposition;
+	int nb_notes;
 	
 	private static final long serialVersionUID = 1L;
 	
-	public OngletKaleidocycleT(Cycle c, Kaleidocycle kc)
+	public OngletKaleidocycleT(Cycle c, Kaleidocycle kc, int nb_notes)
 	{
-		super(c, kc);
-		
+		super(c, kc, nb_notes);
+		this.nb_notes = nb_notes;
 		this.transposition = 0;
 		this.composantesT = new ArrayList<ArrayList<int[]>>();
 		this.completeHaut();
