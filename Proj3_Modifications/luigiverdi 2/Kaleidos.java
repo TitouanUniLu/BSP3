@@ -32,7 +32,7 @@ public class Kaleidos {
 	{
 		int i;
 		this.nb_notes = nb_notes;
-		
+
 		this.accessoires = new ArrayList<Integer>(); 
 		this.structVerticale = new ArrayList<Integer>();
 		

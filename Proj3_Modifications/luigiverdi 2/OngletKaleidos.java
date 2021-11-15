@@ -33,6 +33,7 @@ import javax.swing.JFormattedTextField;
 public class OngletKaleidos extends OngletGraph implements ActionListener{
 
 	Kaleidos k;
+	Cycle c;
 	int nb_notes;
 
 	private static final long serialVersionUID = 1L;
@@ -45,7 +46,7 @@ public class OngletKaleidos extends OngletGraph implements ActionListener{
 		this.initBas(c);
 		this.initCouleurs();
 		this.initZoneAff();
-		
+		this.c = c;
 		this.nb_notes = nb_notes;
 		this.k = new Kaleidos(c, nb_notes);
 		
@@ -93,7 +94,7 @@ public class OngletKaleidos extends OngletGraph implements ActionListener{
 		
 		for (i=nb_notes-1;i>=-1;i--) //! rows
 		{
-			for (j=-1;j<=9;j++) //! columns
+			for (j=-1;j<=nb_notes-1;j++) //! columns
 			{
 				//!si coin inferieur gauche
 				if (i == -1 && j == -1)
@@ -131,7 +132,7 @@ public class OngletKaleidos extends OngletGraph implements ActionListener{
 		boolean rempli;
 		JPanel casePleine;
 		
-		for (i=nb_notes;i>=-1;i--)
+		for (i=nb_notes-1;i>=-1;i--)
 		{// lignes
 			for (j=-1;j<=tab.length-1;j++)
 			{// colonnes

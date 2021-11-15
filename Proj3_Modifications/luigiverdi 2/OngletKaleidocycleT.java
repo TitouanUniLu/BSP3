@@ -82,10 +82,10 @@ public class OngletKaleidocycleT extends OngletKaleidocycle {
 	
 	public void completeHaut()
 	{
-		this.textHaut.setText(this.textHaut.getText()+" "+this.transposition%12);
-		if (this.transposition>=12)
-			this.textHaut.setText(this.textHaut.getText()+" (="+this.transposition+"%12)");
-		if (this.transposition%12 == 0)
+		this.textHaut.setText(this.textHaut.getText()+" "+this.transposition%nb_notes);
+		if (this.transposition>=nb_notes)
+			this.textHaut.setText(this.textHaut.getText()+" (="+this.transposition+"%"+nb_notes+")");
+		if (this.transposition%nb_notes == 0)
 			this.textHaut.setText(this.textHaut.getText()+" (= kaleidocycle)");
 	}
 	
@@ -99,7 +99,7 @@ public class OngletKaleidocycleT extends OngletKaleidocycle {
 			for (j=0;j<this.kc.composantes.get(0).size();j++)
 			{
 				this.composantesT.get(i).add(new int[2]);
-				this.composantesT.get(i).get(j)[0] = (this.kc.composantes.get(i).get(j)[0]+this.transposition)%12;
+				this.composantesT.get(i).get(j)[0] = (this.kc.composantes.get(i).get(j)[0]+this.transposition)%nb_notes;
 				this.composantesT.get(i).get(j)[1] = j;
 			}
 		}
@@ -111,7 +111,7 @@ public class OngletKaleidocycleT extends OngletKaleidocycle {
 		boolean rempli;
 		JPanel casePleine;
 		
-		for (i=11;i>=-1;i--)
+		for (i=nb_notes-1;i>=-1;i--)
 		{// lignes
 			for (j=-1;j<=this.kc.taille-1;j++)
 			{// colonnes
@@ -151,7 +151,7 @@ public class OngletKaleidocycleT extends OngletKaleidocycle {
 		boolean rempli;
 		JPanel casePleine;
 		
-		for (i=11;i>=-1;i--)
+		for (i=nb_notes-1;i>=-1;i--)
 		{// lignes
 			for (j=-1;j<=tab.length-1;j++)
 			{// colonnes

@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
 		super("Projet de java - L2 MPCIE");
 		this.setResizable(false);
 		this.setVisible(true);
-		this.setSize(1200,800);
+		this.setSize(1350,950);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		

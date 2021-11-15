@@ -83,10 +83,10 @@ public class OngletKaleidosT extends OngletKaleidos{
 
 	public void completeHaut()
 	{
-		this.textHaut.setText(this.textHaut.getText()+" "+this.transposition%10);
-		if (this.transposition>=10)
-			this.textHaut.setText(this.textHaut.getText()+" (="+this.transposition+"%12)");
-		if (this.transposition%10 == 0)
+		this.textHaut.setText(this.textHaut.getText()+" "+this.transposition%nb_notes);
+		if (this.transposition>=nb_notes)
+			this.textHaut.setText(this.textHaut.getText()+" (="+this.transposition+"%"+nb_notes+")");
+		if (this.transposition%nb_notes == 0)
 			this.textHaut.setText(this.textHaut.getText()+" (= kaleidos)");
 	}
 
@@ -94,13 +94,13 @@ public class OngletKaleidosT extends OngletKaleidos{
 	{
 		int i,j;
 		
-		for (i=0;i<10;i++)
+		for (i=0;i<nb_notes;i++)
 		{
 			this.composantesT.add(new ArrayList<int[]>());
 			for (j=0;j<this.k.structVerticale.size();j++)
 			{
 				this.composantesT.get(i).add(new int[2]);
-				this.composantesT.get(i).get(j)[0] = (this.k.composantes.get(i).get(j)[0]+this.transposition)%10;
+				this.composantesT.get(i).get(j)[0] = (this.k.composantes.get(i).get(j)[0]+this.transposition)%nb_notes;
 				this.composantesT.get(i).get(j)[1] = j;
 			}
 		}
@@ -118,9 +118,9 @@ public class OngletKaleidosT extends OngletKaleidos{
 		boolean rempli;
 		JPanel casePleine;
 		
-		for (i=9;i>=-1;i--)
+		for (i=nb_notes-1;i>=-1;i--)
 		{// lignes
-			for (j=-1;j<=9;j++)
+			for (j=-1;j<=nb_notes-1;j++)
 			{// colonnes
 				//si coin inferieur gauche
 				if (i == -1 && j == -1)
@@ -158,7 +158,7 @@ public class OngletKaleidosT extends OngletKaleidos{
 		boolean rempli;
 		JPanel casePleine;
 		
-		for (i=9;i>=-1;i--)
+		for (i=nb_notes-1;i>=-1;i--)
 		{// lignes
 			for (j=-1;j<=tab.length-1;j++)
 			{// colonnes

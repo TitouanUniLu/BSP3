@@ -25,7 +25,7 @@ public class main {
 	{
 		if (args.length != 0)
 		{
-      int new_base = 10;
+      int new_base = 11;
 
 			Cycle c = new Cycle(args, new_base);
 			Kaleidos k = new Kaleidos(c, new_base);

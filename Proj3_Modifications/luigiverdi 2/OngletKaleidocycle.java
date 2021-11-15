@@ -84,7 +84,7 @@ public class OngletKaleidocycle extends OngletGraph implements ActionListener{
 	public void initZoneAff()
 	{
 		this.zoneAffichage = new JPanel();
-		this.zoneAffichage.setLayout(new GridLayout(13,this.kc.taille+1));
+		this.zoneAffichage.setLayout(new GridLayout(nb_notes+1,this.kc.taille+1));
 	}
 
 	void affComplet()
