@@ -17,7 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
+import java.util.Scanner;
 
 public class main {
 
@@ -25,12 +25,14 @@ public class main {
 	{
 		if (args.length != 0)
 		{
-      int new_base = 12;
+			Scanner reader = new Scanner(System.in);
+			System.out.println("How many different notes do you want to have? Enter your number: ");
+			int new_base = reader.nextInt();  //doesn't handle input errors yet
+			reader.close();
 
 			Cycle c = new Cycle(args, new_base);
 			Kaleidos k = new Kaleidos(c, new_base);
 			Kaleidocycle kc = new Kaleidocycle(c, k, new_base);
-      System.out.println(c.getBase());
 			
 			MainFrame fenetre = new MainFrame(c, kc, new_base);
 		}

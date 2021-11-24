@@ -51,7 +51,7 @@ public class MainFrame extends JFrame {
 		this.ongletKaleidosT = new OngletKaleidosT(c, nb_notes);
 		this.ongletKaleidocycleT = new OngletKaleidocycleT(c,kc,nb_notes);
 		
-		this.ongletInfos.rempliZoneAff(c);		
+		this.ongletInfos.rempliZoneAff(c, kc);
 		this.ongletKaleidos.affComplet();		
 		this.ongletKaleidocycle.affComplet();
 		this.ongletKaleidosT.affComplet();	

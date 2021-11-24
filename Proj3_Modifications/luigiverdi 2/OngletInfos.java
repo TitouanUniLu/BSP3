@@ -21,6 +21,8 @@
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -32,6 +34,7 @@ public class OngletInfos extends Onglet {
 	JLabel composante;
 	JLabel base;
 	JLabel cycle;
+	JLabel kcycle;
 	JLabel phases;
 	
 	private static final long serialVersionUID = 1L;
@@ -60,6 +63,7 @@ public class OngletInfos extends Onglet {
 		this.composante = new JLabel("     Composante :");
 		this.base = new JLabel("     Base :");
 		this.cycle = new JLabel("     Cycle :");
+		this.kcycle = new JLabel("    Kaleidocycle :");
 		this.phases = new JLabel("     Phases :");
 		
 		this.zoneAffichage = new JPanel();
@@ -70,10 +74,11 @@ public class OngletInfos extends Onglet {
 		this.zoneAffichage.add(this.composante);
 		this.zoneAffichage.add(this.base);
 		this.zoneAffichage.add(this.cycle);
+		this.zoneAffichage.add(this.kcycle);
 		this.zoneAffichage.add(this.phases);
 	}
 	
-	public void rempliZoneAff(Cycle c) //! add the values to the JLabel attributes
+	public void rempliZoneAff(Cycle c, Kaleidocycle kc) //! add the values to the JLabel attributes
 	{
 		int i,j;
 		
@@ -98,6 +103,17 @@ public class OngletInfos extends Onglet {
 			for (j=0;j<c.metre-1;j++)
 				this.cycle.setText(this.cycle.getText()+c.cycle.get(i)[j]+" , ");
 			this.cycle.setText(this.cycle.getText()+c.cycle.get(i)[j]+" ]");
+		}
+
+		this.kcycle.setText(this.kcycle.getText());
+		System.out.println(Arrays.deepToString(kc.composantes.stream().map(u ->  u.toArray(int[][]::new)).toArray(int[][][]::new)));
+		System.out.println(kc.composantes.get(0));
+		for (i=0; i<kc.composantes.size(); i++)
+		{
+			this.kcycle.setText((this.kcycle.getText())+" [ ");
+			for (j=0; j<kc.composantes.get(i).size()-1; j++)
+				this.kcycle.setText(this.kcycle.getText()+kc.composantes.get(i).get(j)+" ,");
+			this.kcycle.setText(this.kcycle.getText()+kc.composantes.get(i).get(j)+" ]");
 		}
 		
 		this.phases.setText(this.phases.getText()+" "+c.phases);

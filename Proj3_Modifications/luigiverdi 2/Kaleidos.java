@@ -59,6 +59,7 @@ public class Kaleidos {
 			{
 				this.composantes.get(i).add(new int[2]);
 				this.composantes.get(i).get(j)[0] = (this.structVerticale.get(j)+i)%nb_notes;
+				//System.out.println((this.structVerticale.get(j)+i)%nb_notes);
 				this.composantes.get(i).get(j)[1] = j;
 			}
 		}
