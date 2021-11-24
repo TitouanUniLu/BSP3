@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2012 by Vincent Raveneau and Giacomo di Tollo           *
+ *   Copyright (C) 2021-22 by Titouan Guerin and Giacomo di Tollo           *
  *   giacomodt@gmail.com                                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -25,7 +25,7 @@ public class main {
 	{
 		if (args.length != 0)
 		{
-      int new_base = 11;
+      int new_base = 12;
 
 			Cycle c = new Cycle(args, new_base);
 			Kaleidos k = new Kaleidos(c, new_base);

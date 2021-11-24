@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2012 by Vincent Raveneau and Giacomo di Tollo           *
+ *   Copyright (C) 2021-22 by Titouan Guerin and Giacomo di Tollo           *
  *   giacomodt@gmail.com                                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
 		super("Projet de java - L2 MPCIE");
 		this.setResizable(false);
 		this.setVisible(true);
-		this.setSize(1350,950);
+		this.setSize(1100,800);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
