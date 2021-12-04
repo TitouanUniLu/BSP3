@@ -9,5 +9,5 @@ for chr in userInput:
 
 notesInput = int(input("How many notes do you want? "))
 cycle = Cycle(moduleList, notesInput)
+cycle.cycleCalc(cycle.composanteCalc ,cycle.meter, cycle.module, cycle.base, cycle.nb_notes, cycle.cycleSet)
 
-pprint(vars(cycle))
