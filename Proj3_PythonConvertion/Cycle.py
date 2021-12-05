@@ -8,6 +8,7 @@ class Cycle:
     base = 0
     cycleSet = []
     composante = []
+    phase = 0
 
     def __init__(self, module, nb_notes):
         self.module = module
@@ -52,10 +53,7 @@ class Cycle:
 
     @staticmethod
     def phaseCalc(cycle):
-        return len(cycle)
-        
-    def getCycle(self):
-        return self.cycleSet
+        cycle.phase = len(cycle.cycleSet)
 
 
             

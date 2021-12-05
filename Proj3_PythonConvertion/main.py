@@ -1,4 +1,5 @@
 from Cycle import Cycle
+from Kaleidocycle import Kaleidocycle
 from Kaleidos import Kaleidos
 from pprint import pprint
 
@@ -11,5 +12,8 @@ for chr in userInput:
 notesInput = int(input("How many notes do you want? "))
 cycle = Cycle(moduleList, notesInput)
 cycle.cycleCalc(cycle.composanteCalc ,cycle.meter, cycle.module, cycle.base, cycle.nb_notes, cycle.cycleSet)
+cycle.phaseCalc(cycle)
 kaleidos = Kaleidos(cycle, notesInput)
 kaleidos.composanteCalc(cycle, kaleidos)
+kaleidocycle = Kaleidocycle(cycle, kaleidos, notesInput)
+print(kaleidocycle.size)

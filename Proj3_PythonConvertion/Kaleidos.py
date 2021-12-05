@@ -1,5 +1,3 @@
-from Cycle import Cycle
-
 class Kaleidos:
     accessory = []
     structVert = []
