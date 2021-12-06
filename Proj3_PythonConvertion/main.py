@@ -3,7 +3,7 @@ from Kaleidocycle import Kaleidocycle
 from Kaleidos import Kaleidos
 from pprint import pprint
 
-notesInput = int(input("How many base notes do you want? "))%12  #for the moment: highest value is 12 but could be changed?
+notesInput = int(input("How many base notes do you want? "))  #for the moment: highest value is 12 but could be changed?
 
 userInput = input("What notes are you using? ")
 moduleList = []
