@@ -40,7 +40,7 @@ class Ui_MainWindow(object):
         self.tabWidget.setDocumentMode(False)
         self.tabWidget.setObjectName("tabWidget")
 
-
+        #tab 1 - General Information
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.label = QtWidgets.QLabel(self.tab)
@@ -51,52 +51,53 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.tabWidget.addTab(self.tab, "")
 
+        #tab 2 - Kaleidos
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.graphicsView = PlotWidget(self.tab_2)
         self.graphicsView.setGeometry(QtCore.QRect(0, 0, 900, 900))
-
-        self.graphicsView.setXRange(0, 11, padding=0)
-        self.graphicsView.setYRange(0, 11, padding=0)
+        self.graphicsView.setXRange(-1, notesInput, padding=0)
+        self.graphicsView.setYRange(-1, notesInput, padding=0)
         self.graphicsView.showGrid(x=True, y=True)
         self.graphicsView.setBackground('w')
         
         
         for i in range(0, len(kaleidos.structVert)):
             for j in kaleidos.structVert[i]:
-                self.graphicsView.plot([i], [j],  symbol='+')
+                self.graphicsView.plot([i], [j],  symbol='x', symbolPen='r', symbolBrush = 0.1)
 
-        self.graphicsView.setObjectName("Kaleidos Representation")
         self.tabWidget.addTab(self.tab_2, "")
 
-
+        #tab 3 - Kaleidocycle
         self.tab_3 = QtWidgets.QWidget()
         self.tab_3.setObjectName("tab_3")
         self.graphicsView = PlotWidget(self.tab_3)
         self.graphicsView.setGeometry(QtCore.QRect(0, 0, 900, 900))
-        self.graphicsView.setBackground('w')
 
         xElem = [0]
         for i in range(0, len(cycle.cycleSet)):
             for j in cycle.cycleSet[i]:
                 xElem.append(j)
-
-
         
+        self.graphicsView.setXRange(-1, len(xElem), padding=0)
+        self.graphicsView.setYRange(-1, notesInput, padding=0)
+        self.graphicsView.showGrid(x=True, y=True)
+        self.graphicsView.setBackground('w')
+
+
         for i in range(0, len(xElem)):
             for j in kaleidos.structVert[xElem[i]]:
-                self.graphicsView.plot([i], [j],  symbol='+')
-                
-        
-        #print(str(xElem[i]) + ": " + str(kaleidos.structVert[xElem[i]]))
+                self.graphicsView.plot([i], [j],  symbol='x', symbolPen='r', symbolBrush = 0.1)
 
         self.graphicsView.plot()
         self.tabWidget.addTab(self.tab_3, "")
 
+        #tab 4 - Kaleidos Transpose
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")
         self.tabWidget.addTab(self.tab_4, "")
 
+        #tab 5 - Kaleidocycle Transpose
         self.tab_5 = QtWidgets.QWidget()
         self.tab_5.setObjectName("tab_5")
         self.tabWidget.addTab(self.tab_5, "")

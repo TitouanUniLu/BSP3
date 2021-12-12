@@ -54,7 +54,3 @@ class Cycle:
     @staticmethod
     def phaseCalc(cycle):
         cycle.phase = len(cycle.cycleSet)
-
-
-            
-
