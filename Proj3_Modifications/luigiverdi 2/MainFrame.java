@@ -35,7 +35,7 @@ public class MainFrame extends JFrame {
 	
 	public MainFrame(Cycle c, Kaleidocycle kc, int nb_notes)
 	{	//! parametres generaux
-		super("Projet de java - L2 MPCIE");
+		super("BSP 3 - Musical Tools");
 		this.setResizable(false);
 		this.setVisible(true);
 		this.setSize(1100,800);
