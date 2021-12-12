@@ -61,11 +61,10 @@ class Ui_MainWindow(object):
         self.graphicsView.showGrid(x=True, y=True)
         self.graphicsView.setBackground('w')
         
-        acc = -1
+        
         for i in range(0, len(kaleidos.structVert)):
-            acc += 1
             for j in kaleidos.structVert[i]:
-                self.graphicsView.plot([acc], [j],  symbol='+')
+                self.graphicsView.plot([i], [j],  symbol='+')
 
         self.graphicsView.setObjectName("Kaleidos Representation")
         self.tabWidget.addTab(self.tab_2, "")
@@ -82,9 +81,14 @@ class Ui_MainWindow(object):
             for j in cycle.cycleSet[i]:
                 xElem.append(j)
 
-        acc =0
+
+        
         for i in range(0, len(xElem)):
-            print(xElem[i])
+            for j in kaleidos.structVert[xElem[i]]:
+                self.graphicsView.plot([i], [j],  symbol='+')
+                
+        
+        #print(str(xElem[i]) + ": " + str(kaleidos.structVert[xElem[i]]))
 
         self.graphicsView.plot()
         self.tabWidget.addTab(self.tab_3, "")
