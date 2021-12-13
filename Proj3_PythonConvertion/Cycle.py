@@ -1,7 +1,7 @@
-from os import curdir
-from types import MethodWrapperType
-from itertools import accumulate, cycle
-import operator
+#from os import curdir
+#from types import MethodWrapperType
+#from itertools import accumulate, cycle
+#import operator
 
 class Cycle:
     meter = 0
