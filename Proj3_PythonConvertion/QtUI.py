@@ -115,13 +115,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         info = "Module: " + str(cycle.module) + '\n\nMeter: ' + str(cycle.meter) + "\n\nPhases: " + str(len(cycle.cycleSet)) + "\n\nBase: " + str(cycle.base) + '\n\nCycle set: \n' + str(cycle.cycleSet) + "\n\nKaleidos set: \n" + str(kaleidos.structVert) + '\n\nKaleidocycle components: \n' + str(kaleidocycle.composante)
 
-
+        title = "LUIGIVERDI - BSP3 Kaleidocycle Python Conversion"
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", info))
+        MainWindow.setWindowTitle(_translate(title, title))
+        self.label.setText(_translate(title, info))
         self.label.adjustSize()
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Information"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Kaleidos"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Kaleidos Transpose"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Kaleidocycle"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate("MainWindow", "Kaleidocycle transpose"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate(title, "Information"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate(title, "Kaleidos"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate(title, "Kaleidos Transpose"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate(title, "Kaleidocycle"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate(title, "Kaleidocycle transpose"))
