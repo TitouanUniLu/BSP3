@@ -1,10 +1,11 @@
-#import pyqtgraph
 from Cycle import Cycle
 from Kaleidocycle import Kaleidocycle
 from Kaleidos import Kaleidos
-#import numpy
+from KaleidosTranspose import KaleidosTranspose
 from pyqtgraph import PlotWidget
 from PyQt5 import QtCore, QtGui, QtWidgets
+
+from KaleidosTranspose import KaleidosTranspose
 
 notesInput = int(input("How many base notes do you want? "))  #for the moment: highest value is 12 but could be changed?
 
@@ -19,6 +20,9 @@ cycle.phaseCalc(cycle)
 kaleidos = Kaleidos(cycle, notesInput)
 kaleidos.composanteCalc(cycle, kaleidos)
 kaleidocycle = Kaleidocycle(cycle, kaleidos, notesInput)
+kaleidosTranspose = KaleidosTranspose(kaleidos, 3, notesInput)
+print(kaleidosTranspose.structVertT)
+print(kaleidos.structVert)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
