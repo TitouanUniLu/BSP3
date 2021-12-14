@@ -2,6 +2,7 @@ from Cycle import Cycle
 from Kaleidocycle import Kaleidocycle
 from Kaleidos import Kaleidos
 from KaleidosTranspose import KaleidosTranspose
+from KaleidocycleTranspose import KaleidocycleTranspose
 from pyqtgraph import PlotWidget
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -14,15 +15,19 @@ moduleList = []
 for chr in userInput:
     if chr.isdigit(): moduleList.append(int(chr)%notesInput)  # "mod" just to make sure input is always correct
 
+tempTranposeValue = input("If you want to have a transpose, enter the value you want for 'k' otherwise enter 0: ")
+if tempTranposeValue.isdigit():
+    transposeVal = abs(int(tempTranposeValue))
+
+
 cycle = Cycle(moduleList, notesInput)
 cycle.cycleCalc(cycle.composanteCalc ,cycle.meter, cycle.module, cycle.base, cycle.nb_notes, cycle.cycleSet)
 cycle.phaseCalc(cycle)
 kaleidos = Kaleidos(cycle, notesInput)
 kaleidos.composanteCalc(cycle, kaleidos)
 kaleidocycle = Kaleidocycle(cycle, kaleidos, notesInput)
-kaleidosTranspose = KaleidosTranspose(kaleidos, 3, notesInput)
-print(kaleidosTranspose.structVertT)
-print(kaleidos.structVert)
+kaleidosTranspose = KaleidosTranspose(kaleidos, transposeVal, notesInput)
+kaleidocycleTranspose = KaleidocycleTranspose(kaleidocycle, transposeVal, notesInput)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -51,7 +56,7 @@ class Ui_MainWindow(object):
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.graphicsView = PlotWidget(self.tab_2)
-        self.graphicsView.setGeometry(QtCore.QRect(0, 0, 900, 900))
+        self.graphicsView.setGeometry(QtCore.QRect(0, 0, 1800, 900))
         self.graphicsView.setXRange(-1, notesInput, padding=0)
         self.graphicsView.setYRange(-1, notesInput, padding=0)
         self.graphicsView.showGrid(x=True, y=True)
@@ -68,14 +73,14 @@ class Ui_MainWindow(object):
         self.tab_3 = QtWidgets.QWidget()
         self.tab_3.setObjectName("tab_3")
         self.graphicsView = PlotWidget(self.tab_3)
-        self.graphicsView.setGeometry(QtCore.QRect(0, 0, 900, 900))
+        self.graphicsView.setGeometry(QtCore.QRect(0, 0, 1800, 900))
 
         xElem = [0]
         for i in range(0, len(cycle.cycleSet)):
             for j in cycle.cycleSet[i]:
                 xElem.append(j)
         
-        self.graphicsView.setXRange(-1, len(xElem), padding=0)
+        self.graphicsView.setXRange(-1, len(xElem)+1, padding=0)
         self.graphicsView.setYRange(-1, notesInput, padding=0)
         self.graphicsView.showGrid(x=True, y=True)
         self.graphicsView.setBackground('w')
@@ -91,11 +96,35 @@ class Ui_MainWindow(object):
         #tab 4 - Kaleidos Transpose
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")
+        self.graphicsView = PlotWidget(self.tab_4)
+        self.graphicsView.setGeometry(QtCore.QRect(0, 0, 1800, 900))
+        self.graphicsView.setXRange(-1, notesInput, padding=0)
+        self.graphicsView.setYRange(-1, notesInput, padding=0)
+        self.graphicsView.showGrid(x=True, y=True)
+        self.graphicsView.setBackground('w')
+
+        for i in range(0, len(kaleidosTranspose.structVertT)):
+            for j in kaleidosTranspose.structVertT[i]:
+                self.graphicsView.plot([i], [j],  symbol='x', symbolPen='r', symbolBrush = 0.1)
+
+        self.graphicsView.plot()
         self.tabWidget.addTab(self.tab_4, "")
 
         #tab 5 - Kaleidocycle Transpose
         self.tab_5 = QtWidgets.QWidget()
         self.tab_5.setObjectName("tab_5")
+        self.graphicsView = PlotWidget(self.tab_5)
+        self.graphicsView.setGeometry(QtCore.QRect(0, 0, 1800, 900))
+        self.graphicsView.setXRange(-1, len(xElem)+1, padding=0)
+        self.graphicsView.setYRange(-1, notesInput, padding=0)
+        self.graphicsView.showGrid(x=True, y=True)
+        self.graphicsView.setBackground('w')
+
+        for i in range(0, len(xElem)):
+            for j in kaleidocycleTranspose.composanteT[xElem[i]]:
+                self.graphicsView.plot([i], [j],  symbol='x', symbolPen='r', symbolBrush = 0.1)
+
+        self.graphicsView.plot()
         self.tabWidget.addTab(self.tab_5, "")
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -109,7 +138,7 @@ class Ui_MainWindow(object):
 
 
     def retranslateUi(self, MainWindow):
-        info = "Module: " + str(cycle.module) + '\n\nMeter: ' + str(cycle.meter) + "\n\nPhases: " + str(len(cycle.cycleSet)) + "\n\nBase: " + str(cycle.base) + '\n\nCycle set: \n' + str(cycle.cycleSet) + "\n\nKaleidos set: \n" + str(kaleidos.structVert) + '\n\nKaleidocycle components: \n' + str(kaleidocycle.composante)
+        info = "Module: " + str(cycle.module) + '\n\nMeter: ' + str(cycle.meter) + "\n\nPhases: " + str(len(cycle.cycleSet)) + "\n\nBase: " + str(cycle.base) + '\n\nCycle set: \n' + str(cycle.cycleSet) + "\n\nKaleidos set: \n" + str(kaleidos.structVert) + "\n\nKaleidos Transpose set (with k = " + str(transposeVal) +"): \n" + str(kaleidosTranspose.structVertT) + '\n\nKaleidocycle components: \n' + str(kaleidocycle.composante) + '\n\nKaleidocycle Transpose components (with k = ' + str(transposeVal) +'): \n' + str(kaleidocycleTranspose.composanteT) 
 
         title = "LUIGIVERDI - BSP3 Kaleidocycle Python Conversion"
         _translate = QtCore.QCoreApplication.translate
