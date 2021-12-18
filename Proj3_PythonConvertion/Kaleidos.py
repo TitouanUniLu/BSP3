@@ -1,7 +1,14 @@
+"""
+File containing the kaleidos class
+"""
 class Kaleidos:
+    """
+    a Kaleidos is composed of an accessory, a vertical structure and a composante
+    it also requires a Cycle object to be created
+    """
     accessory = []
     structVert = []
-    composante = [] #composante structure is a bit bad, need to modify it later (still works though)
+    composante = [] 
 
     def __init__(self, cycle, nb_notes):
         self.cycle = cycle
@@ -18,6 +25,9 @@ class Kaleidos:
 
     @staticmethod
     def composanteCalc(cycle, kaleidos):
+        """
+        function calculates the elemnts of the composantes by going through the elements of the vertical structure
+        """
         kaleidos.composante.append(kaleidos.structVert[0])
         for i in range(1, kaleidos.nb_notes):
             tempList = []

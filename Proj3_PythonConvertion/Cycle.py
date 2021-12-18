@@ -1,9 +1,10 @@
-#from os import curdir
-#from types import MethodWrapperType
-#from itertools import accumulate, cycle
-#import operator
-
+"""
+File containing the cycle class, needed for all other classes
+"""
 class Cycle:
+    """
+    a cycle is composed of a: meter, base, composante, phase and noteSet
+    """
     meter = 0
     base = 0
     cycleSet = []
@@ -17,12 +18,13 @@ class Cycle:
         for i in range (0, self.meter):
             self.base += module[i]
         self.base = self.base % nb_notes
-
-        #self.cycleCalc(self.composanteCalc, self.meter, self.composante, self.base, self.nb_notes, self.cycleSet)
         
     
     @staticmethod
     def composanteCalc(x, meter, composante, base, notes, cycle):
+        """
+        function calculates the first composante when called for the first time, then calculates the other ones
+        """
         if x == 0:
             composante0 = []
             temp = 0
@@ -30,9 +32,6 @@ class Cycle:
                 composante0.append((composante[i] + temp) % notes)
                 temp += composante[i]
             cycle.append(composante0)
-            #composante0 = list(accumulate(composante, operator.add))            smarter method - try it later
-            #for i in range(0, meter): composante0[i] = composante0[i] % notes
-            #cycle.append(composante0)
             return 
 
         else:
@@ -44,6 +43,9 @@ class Cycle:
 
     @staticmethod
     def cycleCalc(f, meter, composante, base, notes, cycle):
+        """
+        function calculates all the elements of the composante until the last element of a composante is equal to 0
+        """
         i = 0
         f(i, meter, composante, base, notes, cycle)
 
@@ -53,4 +55,7 @@ class Cycle:
 
     @staticmethod
     def phaseCalc(cycle):
+        """
+        function calculates the amounts of phases (more practical than always using len(cycle.cycleSet))
+        """
         cycle.phase = len(cycle.cycleSet)

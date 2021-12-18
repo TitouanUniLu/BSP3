@@ -5,20 +5,24 @@ from KaleidosTranspose import KaleidosTranspose
 from KaleidocycleTranspose import KaleidocycleTranspose
 from pyqtgraph import PlotWidget
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 from KaleidosTranspose import KaleidosTranspose
 
-notesInput = int(input("How many base notes do you want? "))  #for the moment: highest value is 12 but could be changed?
+"""
+File documentation:
+    - 3 user inputs before launch of app: amount of notes, base note set and transpose value (optional)
+    - Creation of the five objects: cycle, kaleidos, kaleidocycle, kaleidos transpose and kaleidocycle tranpose
+    - Creation of the Main Window UI
+"""
+notesInput = int(input("How many base notes do you want? ")) 
 
 userInput = input("What notes are you using? ")
 moduleList = []
 for chr in userInput:
-    if chr.isdigit(): moduleList.append(int(chr)%notesInput)  # "mod" just to make sure input is always correct
+    if chr.isdigit(): moduleList.append(int(chr)%notesInput)  
 
 tempTranposeValue = input("If you want to have a transpose, enter the value you want for 'k' otherwise enter 0: ")
 if tempTranposeValue.isdigit():
     transposeVal = abs(int(tempTranposeValue))
-
 
 cycle = Cycle(moduleList, notesInput)
 cycle.cycleCalc(cycle.composanteCalc ,cycle.meter, cycle.module, cycle.base, cycle.nb_notes, cycle.cycleSet)
@@ -29,8 +33,18 @@ kaleidocycle = Kaleidocycle(cycle, kaleidos, notesInput)
 kaleidosTranspose = KaleidosTranspose(kaleidos, transposeVal, notesInput)
 kaleidocycleTranspose = KaleidocycleTranspose(kaleidocycle, transposeVal, notesInput)
 
+
 class Ui_MainWindow(object):
+    """
+    Main window is composed of 2 functions to setup the different components of the UI as well as the data that they hold,
+    and to add the various tabs to the tabWidget (including titles and some label text)
+    """
     def setupUi(self, MainWindow):
+        """
+        this function creates the different tabs that are in the main window and also adds the graphs containing the visual representations
+        of the kaleidos/kaleidosT and kaleidocycle/kaleidocycleT
+        All the sizing, fonts etc... are done here
+        """
         MainWindow.setObjectName("LUIGIVERDI - BSP3 Kaleidocycle Python Conversion")
         MainWindow.resize(1800, 1200)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -138,6 +152,9 @@ class Ui_MainWindow(object):
 
 
     def retranslateUi(self, MainWindow):
+        """
+        This function adds the different tabs to the window and also adds the information required on the information tab
+        """
         info = "Module: " + str(cycle.module) + '\n\nMeter: ' + str(cycle.meter) + "\n\nPhases: " + str(len(cycle.cycleSet)) + "\n\nBase: " + str(cycle.base) + '\n\nCycle set: \n' + str(cycle.cycleSet) + "\n\nKaleidos set: \n" + str(kaleidos.structVert) + "\n\nKaleidos Transpose set (with k = " + str(transposeVal) +"): \n" + str(kaleidosTranspose.structVertT) + '\n\nKaleidocycle components: \n' + str(kaleidocycle.composante) + '\n\nKaleidocycle Transpose components (with k = ' + str(transposeVal) +'): \n' + str(kaleidocycleTranspose.composanteT) 
 
         title = "LUIGIVERDI - BSP3 Kaleidocycle Python Conversion"
