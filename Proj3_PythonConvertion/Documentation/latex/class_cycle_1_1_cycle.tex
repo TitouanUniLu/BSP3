@@ -1,0 +1,87 @@
+\hypertarget{class_cycle_1_1_cycle}{}\doxysection{Cycle.\+Cycle Class Reference}
+\label{class_cycle_1_1_cycle}\index{Cycle.Cycle@{Cycle.Cycle}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_a3931ffceae6c4a54957f1f4041aea92b}\label{class_cycle_1_1_cycle_a3931ffceae6c4a54957f1f4041aea92b}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, module, nb\+\_\+notes)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_cycle_1_1_cycle_ae34872d6e79c7d8cca436cada12a11a0}{composante\+Calc}} (x, meter, composante, base, notes, cycle)
+\item 
+def \mbox{\hyperlink{class_cycle_1_1_cycle_ae7496cf6a969757c32af2d2b50dbace8}{cycle\+Calc}} (f, meter, composante, base, notes, cycle)
+\item 
+def \mbox{\hyperlink{class_cycle_1_1_cycle_af225b755bc45d8713d62be6ac311bfb0}{phase\+Calc}} (cycle)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_a9a88524325fd018be566697ae6f00c11}\label{class_cycle_1_1_cycle_a9a88524325fd018be566697ae6f00c11}} 
+{\bfseries module}
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_abc3878946a2694ecf1db66459c75f843}\label{class_cycle_1_1_cycle_abc3878946a2694ecf1db66459c75f843}} 
+{\bfseries nb\+\_\+notes}
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_add66233e52d9a66b7737e268088fefa1}\label{class_cycle_1_1_cycle_add66233e52d9a66b7737e268088fefa1}} 
+{\bfseries meter}
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_ac5c78f045cc00b5f773a3a91f5406a08}\label{class_cycle_1_1_cycle_ac5c78f045cc00b5f773a3a91f5406a08}} 
+{\bfseries base}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_ad5e2bd979cb3a82287094f9ddafaf410}\label{class_cycle_1_1_cycle_ad5e2bd979cb3a82287094f9ddafaf410}} 
+int {\bfseries meter} = 0
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_a76397b8011adcd6cac0ec58cda1bd4db}\label{class_cycle_1_1_cycle_a76397b8011adcd6cac0ec58cda1bd4db}} 
+int {\bfseries base} = 0
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_ace45d5ac64c08ce1ca13d7d75a58a84d}\label{class_cycle_1_1_cycle_ace45d5ac64c08ce1ca13d7d75a58a84d}} 
+list {\bfseries cycle\+Set} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_a97b587c97ddb8d522ddbe139cb4790cc}\label{class_cycle_1_1_cycle_a97b587c97ddb8d522ddbe139cb4790cc}} 
+list {\bfseries composante} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_cycle_1_1_cycle_ae92efa8aa3312627edefc3003f97a81e}\label{class_cycle_1_1_cycle_ae92efa8aa3312627edefc3003f97a81e}} 
+int {\bfseries phase} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}a cycle is composed of a: meter, base, composante, phase and noteSet
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cycle_1_1_cycle_ae34872d6e79c7d8cca436cada12a11a0}\label{class_cycle_1_1_cycle_ae34872d6e79c7d8cca436cada12a11a0}} 
+\index{Cycle.Cycle@{Cycle.Cycle}!composanteCalc@{composanteCalc}}
+\index{composanteCalc@{composanteCalc}!Cycle.Cycle@{Cycle.Cycle}}
+\doxysubsubsection{\texorpdfstring{composanteCalc()}{composanteCalc()}}
+{\footnotesize\ttfamily def Cycle.\+Cycle.\+composante\+Calc (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{meter,  }\item[{}]{composante,  }\item[{}]{base,  }\item[{}]{notes,  }\item[{}]{cycle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}function calculates the first composante when called for the first time, then calculates the other ones
+\end{DoxyVerb}
+ \mbox{\Hypertarget{class_cycle_1_1_cycle_ae7496cf6a969757c32af2d2b50dbace8}\label{class_cycle_1_1_cycle_ae7496cf6a969757c32af2d2b50dbace8}} 
+\index{Cycle.Cycle@{Cycle.Cycle}!cycleCalc@{cycleCalc}}
+\index{cycleCalc@{cycleCalc}!Cycle.Cycle@{Cycle.Cycle}}
+\doxysubsubsection{\texorpdfstring{cycleCalc()}{cycleCalc()}}
+{\footnotesize\ttfamily def Cycle.\+Cycle.\+cycle\+Calc (\begin{DoxyParamCaption}\item[{}]{f,  }\item[{}]{meter,  }\item[{}]{composante,  }\item[{}]{base,  }\item[{}]{notes,  }\item[{}]{cycle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}function calculates all the elements of the composante until the last element of a composante is equal to 0
+\end{DoxyVerb}
+ \mbox{\Hypertarget{class_cycle_1_1_cycle_af225b755bc45d8713d62be6ac311bfb0}\label{class_cycle_1_1_cycle_af225b755bc45d8713d62be6ac311bfb0}} 
+\index{Cycle.Cycle@{Cycle.Cycle}!phaseCalc@{phaseCalc}}
+\index{phaseCalc@{phaseCalc}!Cycle.Cycle@{Cycle.Cycle}}
+\doxysubsubsection{\texorpdfstring{phaseCalc()}{phaseCalc()}}
+{\footnotesize\ttfamily def Cycle.\+Cycle.\+phase\+Calc (\begin{DoxyParamCaption}\item[{}]{cycle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}function calculates the amounts of phases (more practical than always using len(cycle.cycleSet))
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Cycle.\+py\end{DoxyCompactItemize}

@@ -15,6 +15,7 @@ For additional information for Windows follow this link: https://phoenixnap.com/
 To install on Linux, follow this link: https://opensource.com/article/20/4/install-python-linux
 To install on Mac OS, follow this link: https://www.freecodecamp.org/news/python-version-on-mac-update/ 
 
+The code documentation can be found in the documentation folder. The "refman" folder is the most important one. In the html folder, selecting one of the Chrome HTML documents will redirect you to the webiste for the project.
 
 Required libraries: Pip, PyQt5, Qt Designer, pyqtgraph
 Installation processes for Windows:
